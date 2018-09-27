@@ -1,0 +1,51 @@
+<div class="panel panel-primary" >
+
+  <div class="panel-heading" *ngIf="student">{{student?.RollNo}}</div>
+  <div class="panel-heading" *ngIf="!student">Add New Student</div>
+
+  <div class="panel-body">
+
+
+  <form [formGroup]='studentForm' (submit)='Update(studentForm.value)' >
+
+    <div class="form-group" >
+      <label>First Name</label>
+      <input type="text" formControlName='FirstName'  class="form-control">
+    </div>
+
+    <div class="form-group" >
+      <label>Last Name</label>
+      <input type="text" formControlName='Lastname'  class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" formControlName='Email'  class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Mobile No</label>
+      <input type="number" formControlName='MobileNo'   class="form-control">
+    </div>
+
+
+
+
+  </form>
+  </div>
+
+
+  <div class="panel-footer">
+
+    <button class="btn-primary" *ngIf="IsNew" (click)="Add(studentForm.value)">Add</button>
+    <button class="btn-primary"  *ngIf='formDisable'  (click)="Back()" > Back</button>
+    <button class="btn-primary" *ngIf='formDisable && !IsNew' (click)="Edit()" > Edit</button>
+    <button class="btn-primary" *ngIf='!formDisable'   (click)="Update(studentForm.value)" > Update</button>
+    <button class="btn-primary" *ngIf='!formDisable && !IsNew'   (click)="Cancel()" > Cancel</button>
+
+
+
+  </div>
+
+</div>
+

@@ -1,0 +1,55 @@
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+
+    <div class="row">
+
+      <div class="col-md-3">    List of Students
+      </div>
+
+      <div class="col-md-3">
+        <input class="form-control" [(ngModel)]='SearchString' (keyup)='Search()'  placeholder="min 3 alphabets..">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="panel-body">
+
+    <table *ngIf='FilterList.length>0' class="table table-responsive">
+
+      <thead>
+          <tr>
+
+            <td>Firstname </td>
+            <td>Lastname </td>
+            <td>Email </td>
+            <td>MobileNo </td>
+            <td>RollNo</td>
+          </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let student of FilterList' >
+
+
+        <td>  <a [routerLink]="['/Me', student.RollNo]">{{student.FirstName}}</a>   </td>
+        <td>{{student.Lastname}} </td>
+        <td >{{student.Email}} </td>
+        <td>{{student.MobileNo}} </td>
+        <td >{{student.RollNo }}</td>
+
+      </tr>
+      </tbody>
+
+    </table>
+
+    <div *ngIf="FilterList.length == 0">No Result Found</div>
+
+
+
+  </div>
+
+
+
+</div>
